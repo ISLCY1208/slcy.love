@@ -41,7 +41,20 @@ body.dark-mode .mode-toggle-button::before {
   display: grid;
   gap: 20px;
   justify-items: center;
-  grid-template-columns: repeat(4, minmax(50px, 1fr));
+}
+
+@media screen and (min-width: 768px) {
+  /* 在视口宽度大于等于 768px 时，显示两列 */
+  .gallery {
+      grid-template-columns: repeat(2, minmax(50px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  /* 在视口宽度大于等于 1440px 时，显示四列 */
+  .gallery {
+      grid-template-columns: repeat(4, minmax(50px, 1fr));
+  }
 }
 
 
