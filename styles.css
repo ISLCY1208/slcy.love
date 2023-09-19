@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 6%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mode-toggle-button {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  z-index: 9998;
+}
+
+.mode-toggle-button::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 24px;
+  height: 24px;
+  background-color: #1d1d1f;
+  border-radius: 50%;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s;
+}
+
+body.dark-mode .mode-toggle-button::before {
+  background-color: #fff;
+}
+
+.gallery {
+  display: grid;
+  gap: 20px;
+  justify-items: center;
+}
+
+@media screen and (min-width: 768px) {
+  /* 在视口宽度大于等于 768px 时，显示两列 */
+  .gallery {
+      grid-template-columns: repeat(2, minmax(50px, 1fr));
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  /* 在视口宽度大于等于 1440px 时，显示四列 */
+  .gallery {
+      grid-template-columns: repeat(4, minmax(50px, 1fr));
+  }
+}
+
+.gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  margin: 8px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.gallery img:hover {
+  transform: scale(1.05);
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+.overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.95);
+  z-index: 9999;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.overlay.active {
+  display: flex;
+}
+
+#enlarged-img {
+  max-width: 100%;
+  max-height: 100%;
+  margin: auto;
+  cursor: zoom-in;
+  transform-origin: center center;
+  transition: transform 0.5s;
+}
+
+.zoom-in {
+  cursor: zoom-out;
+  transform: scale(1.2);
+}
+
+.zoom-out {
+  cursor: zoom-in;
+  transform: scale(1);
+}
