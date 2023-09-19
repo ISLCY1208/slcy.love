@@ -68,5 +68,13 @@
   <button id="mode-toggle" class="mode-toggle-button"></button>
 
   <script src="script.js"></script>
+  <script>
+    // 替换为备用图片
+    function replaceWithFallbackImage(img) {
+      if (/(iPhone|iPod|iPad)/i.test(navigator.userAgent)) {
+        img.src = "img/" + img.alt + ".jpg";
+      }
+    }
+  </script>
 </body>
 </html>
