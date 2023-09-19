@@ -85,6 +85,10 @@ body.dark-mode .mode-toggle-button::before {
   align-items: center;
 }
 
+.overlay.open {
+  opacity: 1;
+}
+
 .overlay.active {
   display: flex;
 }
@@ -101,9 +105,12 @@ body.dark-mode .mode-toggle-button::before {
 .zoom-in {
   cursor: zoom-out;
   transform: scale(1.2);
+  transition: transform 0.3s;
 }
 
 .zoom-out {
   cursor: zoom-in;
   transform: scale(1);
+  transition: transform 0.3s;
 }
+
